@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="src/index.js"></script>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <title>児童表作成</title>
+    <body onload="onloaded()">
+        <div id="header">児童表作成</div>
+        <div id="selector">
+            <table>
+                <tr>
+                    <td><label>月選択：</label></td>
+                    <td><select id="select_month"></select></td>
+                    <!-- <td><label id="month_create_btn" class="common-btn">◀︎今月分作成</label><br></td> -->
+                </tr>
+                <tr>
+                    <td><label>名前：</label></td>
+                    <td><select id="select_child"></select></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label id="add_child" class="common-btn">園児を追加</label><br></td>
+                    <td><label id="save_btn" class="common-btn">児童表保存</label></td>
+                    <td><label id="export_btn" class="common-btn">エクスポート</label></td>
+                </tr>
+            </table>
+        </div>
+        <div id="editor">
+            <div class="text-area" >
+                <label class="text-title">選択月の前月の児童表</label><br>
+                <textarea name="" id="previous_report" cols="30" rows="10" readonly></textarea>
+            </div>
+            <div class="text-area" >
+                <label class="text-title">選択月の児童表</label><br>
+                <textarea name="" id="current_report" class="text-area" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <!-- dialog -->
+        <div id="add_dialog" class="hidden">
+            <div id="dialog">
+                <table id="add_menu_table">
+                    <tr>
+                        <td>名前</td>
+                        <td><input type="text" name="" id="add_name"></td>
+                        <td>※例) 山田太郎</td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="" id="add_id"></td>
+                        <td>※例) taro.yamada</td>
+                    </tr>
+                    <tr>
+                        <td>年齢</td>
+                        <td><input type="number" name="" id="add_age"></td>
+                    </tr>
+                    <tr>
+                        <td>性別</td>
+                        <td>
+                            <select name="" id="add_sex">
+                                <option value="NaN" selected>性別を選んでください</option>
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div id="add_menu_buttons">
+                    <label id="add_child_btn" class="common-btn">追加</label>
+                    <label id="add_cancel_btn" class="common-btn">キャンセル</label>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
